@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css"/>
+    <title>HTML/CSS to JS</title>
+  </head>
+
+  <body>
+    
+  <div class="body">
+    <div class="container">
+    <h1>
+      ✨"Create your own Sunshine"✨
+    </h1>
+    <div class="row">
+   <div class="col-2"> <button type="button" class="btn btn-primary">Paris</button></div>
+ <div class="col-2"> <button type="button" class="btn btn-secondary">London</button></div>
+ <div class="col-2"> <button type="button" class="btn btn-success">Riga</button></div>
+  <div class="col-2"> <button type="button" class="btn btn-danger">Lagos</button></div>
+  <div class="col-2"> <button type="button" class="btn btn-warning">Toronto</button></div>
+  <div class="col-2"> <button type="button" class="btn btn-info">New York</button></div>
+    </div>
+
+    <div class="button"> 
+    <form id="button-input">
+    <input
+    type="text"
+    placeholder="Search for a city"
+    autocomplete="off"
+    autofocus="on"
+    id="find-input"/>
+
+    <input type="Submit" id="search-location" value="Search"/>
+    <input type="submit" id="get-location" value="Current">
+    </form> 
+  </div>
+
+   <p>
+     <div class="time">
+      <small> Thursday <br> </small> </div> 
+   </p>
+   <h2>
+    <div class="location"> Bristol </div>
+     <br>
+     <div class="weather"><small> Clear with gentle breeze</small></div>
+   </h2>
+   <p>
+     <div class="moon">
+     🌙
+     </div>
+   </p>
+   <h3>
+   Current Weather
+   </h3>
+   <h4> 
+        <span class="temperature"> <span id="temperature">6
+</span><span class="units"> <a href="#" id="celsius-link">°C</a> |
+  <a href="#" id="fahrenheit-link">°F </a> </span>
+   </h4>
+   <div class="description"> 
+      <div class="humidity">
+        Precipitation: <br> 2%
+      </div>
+      <div class="wind">
+        Wind: <br> km/h
+<H5>
+  <div class="row">
+ <div class="col-2">Friday <br> 9°C <br> ⛅ </div>
+ <div class="col-2">Saturday <br> 9°C <br> 🌧️</div> 
+ <div class="col-2">Sunday <br> 11°C <br> 🌧️</div> 
+<div class="col-2">Monday <br> 9°C <br> 🌦️</div> 
+ <div class="col-2">Tuesday <br> 11°C <br> 🌦️</div> 
+ <div class="col-2">Wednesday <br> 13°C <br>🌧️</div> 
+  </div>
+</H5>
+  </div>
+  <div class="heading"> <p>Coded by Stella-Maris Ojideh</p></div>
+  <script src="script.js"></script>
+  </body>
+</html>
