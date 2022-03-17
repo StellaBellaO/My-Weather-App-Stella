@@ -20,6 +20,7 @@ h1 {
   
   .col-2 {
     margin-top: 25px;
+    width: 20px;
   }
   
   .button {
@@ -68,4 +69,6 @@ h1 {
     background-position: center;
     background-repeat: no-repeat;
   }
+
+  
   
