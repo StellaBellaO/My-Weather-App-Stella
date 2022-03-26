@@ -1,5 +1,4 @@
 //time
-
 let now = new Date();
 let weekDays = [
   "Sunday",
@@ -25,10 +24,10 @@ if (minutes < 10) {
 let time = document.querySelector(".time");
 
 time.innerHTML = `${day} <br> ${hour}:${minutes}`;
-////// Forecast
+
 function formatDay(timestamp){
-    let date = new date(timestamp * 1000);
-    let day = new date.getDay();
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
     return days[day];
@@ -42,11 +41,14 @@ function showForecast(response) {
     forecast.forEach(function (forecastDay, index) {
         if (index < 6) {
             forecastHTML =
-            forecastHTML + `
+            forecastHTML + 
+            `
             <div class="col-2">
             <div class="forecast-date">${formatDay(forecastDay.dt)}</div>
             <img
-            src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+            src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+            }@2x.png"
             alt=""
             width="45"
             />
@@ -69,7 +71,7 @@ function getForecast(coordinates) {
     axios.get(apiUrl).then(showForecast);
 }
 
-//// City Search
+
 function showWeather(response) {
     document.querySelector(".location").innerHTML = response.data.name;
     document.querySelector(".temperature").innerHTML = Math.round(
@@ -81,15 +83,13 @@ function showWeather(response) {
     document.querySelector(".weather").innerHTML = response.data.weather[0].main;
     celsiusTemperature = response.data.main.temp;
     
-    let iconElement = document.querySelector(".icon");
+    let iconElement = document.querySelector("#icon");
 
     iconElement.setAttribute(
         "src",
         `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
       );
       iconElement.setAttribute("alt", response.data.weather[0].description);
-
-      getForecast(response.data.coord);
   }
   
   function search(city) {
@@ -109,11 +109,11 @@ function showWeather(response) {
   
 
 
-///
+
 
 function searchLocation(position) {
   let apikey = "57a16d31a99c50513998174551722349";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apikey}&units=metric`;
 
   axios.get(apiUrl).then(showWeather);
 }
