@@ -52,7 +52,7 @@ function convertToFahrenheit(event) {
   
   let celsiusLink = document.querySelector("#celsius-link");
   celsiusLink.addEventListener("click", convertToCelsius);
-  
+
   ///////
 
 function formatDay(timestamp){
@@ -76,14 +76,15 @@ function displayForecast(response) {
             <div class="col-2">
             <div class="forecast-date">${formatDay(forecastDay.dt)}</div>
             <img
-            src="${icon(forecastDay.weather[0].description)}"
-            }@2x.png"
+            src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
             alt=""
             width="42"
             />
-            <div class="weather-temp">
-            <span class="temp-max"> ${Math.round(forecastDay.temp.max)}° </span>
-            <span class="temp-min"> ${Math.round(forecastDay.temp.min)}° </span>
+            <div class="weather-forecast-temperature">
+            <span class="weather-forecast-temperature-max"> ${Math.round(forecastDay.temp.max)}° </span>
+            <span class="weather-forecast-temperature-min"> ${Math.round(forecastDay.temp.min)}° </span>
             </div>
             </div>
             `;
@@ -121,7 +122,7 @@ function showWeather(response) {
       );
       iconElement.setAttribute("alt", response.data.weather[0].description);
     
-      getForecast(response.data.coords);
+      getForecast(response.data.coord);
     }
   
   function search(city) {
