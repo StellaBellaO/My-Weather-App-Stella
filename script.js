@@ -80,7 +80,7 @@ function showWeather(response) {
     document.querySelector(".weather").innerHTML = response.data.weather[0].main;
     celsiusTemperature = response.data.main.temp;
     
-    let iconElement = document.querySelector("#emoji");
+    let iconElement = document.querySelector("#icon");
 
     iconElement.setAttribute(
         "src",
