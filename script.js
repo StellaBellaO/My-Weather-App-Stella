@@ -1,4 +1,5 @@
 //time
+
 let now = new Date();
 let weekDays = [
   "Sunday",
@@ -50,8 +51,8 @@ function showForecast(response) {
             width="45"
             />
             <div class="weather-temp">
-            <span class="temp-max"> ${Math.round(forecastDay.temp.max)}°</span>
-            <span class="temp-min"> ${Math.round(forecastDay.temp.min)}°</span>
+            <span class="temp-max"> ${Math.round(forecastDay.temp.max)}° </span>
+            <span class="temp-min"> ${Math.round(forecastDay.temp.min)}° </span>
             </div>
             </div>
             `;
@@ -64,7 +65,7 @@ function showForecast(response) {
 
 function getForecast(coordinates) {
     let apiKey = "57a16d31a99c50513998174551722349"
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apikey}&units=metrics`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(showForecast);
 }
 
@@ -80,7 +81,7 @@ function showWeather(response) {
     document.querySelector(".weather").innerHTML = response.data.weather[0].main;
     celsiusTemperature = response.data.main.temp;
     
-    let iconElement = document.querySelector("#icon");
+    let iconElement = document.querySelector(".icon");
 
     iconElement.setAttribute(
         "src",
@@ -88,6 +89,7 @@ function showWeather(response) {
       );
       iconElement.setAttribute("alt", response.data.weather[0].description);
 
+      getForecast(response.data.coord);
   }
   
   function search(city) {
@@ -111,7 +113,7 @@ function showWeather(response) {
 
 function searchLocation(position) {
   let apikey = "57a16d31a99c50513998174551722349";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apikey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
 
   axios.get(apiUrl).then(showWeather);
 }
